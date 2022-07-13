@@ -6,7 +6,10 @@ Gen-X Coding Helper VSCode Extension
 
 1. Export JS - Generates an index.js and exports all the js(x) files in the generated file
 
-2. Replace object with JSON - Replace an object with JSON syntax
+2. Change extension name - Change files extension name recursively in a folder
+
+3. Replace object with JSON - Replace an object with JSON syntax
+
 
 ## Requirements
 

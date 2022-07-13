@@ -4,13 +4,15 @@ const vscode = require("vscode");
 const { _ } = require("@genx/july");
 const exportJs_ = require("./cmd/exportJs_");
 const objectToJSON_ = require("./cmd/objectToJSON_");
+const changeExtName_ = require("./cmd/changeExtName_");
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
 const cmdMap = {
     "genx-vs-helper.exportJs": exportJs_,
-    "genx-vs-helper.objectToJSON": objectToJSON_,
+    "genx-vs-helper.changeExtName": changeExtName_,
+	"genx-vs-helper.objectToJSON": objectToJSON_,
 };
 
 /**

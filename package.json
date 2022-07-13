@@ -11,6 +11,7 @@
     ],
     "activationEvents": [
         "onCommand:genx-vs-helper.exportJs",
+		"onCommand:genx-vs-helper.changeExtName",
         "onCommand:genx-vs-helper.objectToJSON"
     ],
     "main": "./extension.js",
@@ -20,6 +21,11 @@
             {
                 "command": "genx-vs-helper.exportJs",
                 "title": "Generate an index exporting all js files in the folder",
+                "category": "Gen-X"
+            },
+			{
+                "command": "genx-vs-helper.changeExtName",
+                "title": "Change files extension name recursively in a folder",
                 "category": "Gen-X"
             },
             {
@@ -33,6 +39,11 @@
                 {
                     "when": "explorerResourceIsFolder",
                     "command": "genx-vs-helper.exportJs",
+                    "group": "Gen-X"
+                },
+				{
+                    "when": "explorerResourceIsFolder",
+                    "command": "genx-vs-helper.changeExtName",
                     "group": "Gen-X"
                 }
             ]
