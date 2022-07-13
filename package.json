@@ -1,40 +1,60 @@
 {
   "name": "genx-vs-helper",
-	"displayName": "Gen-X Codex",
-	"description": "Gen-X VSCode Coding Helper Extension",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.69.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:genx-vs-helper.helloWorld"
-	],
-	"main": "./extension.js",
-	"contributes": {
-		"commands": [{
-            "command": "genx-vs-helper.exportJs",
-            "title": "Export all JS files"
-
-		}]
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-        "@types/vscode": "^1.69.0",
-        "@types/glob": "^7.2.0",
-        "@types/mocha": "^9.1.1",
-        "@types/node": "16.x",
-        "eslint": "^8.18.0",
-        "glob": "^8.0.3",
-        "mocha": "^10.0.0",
-        "typescript": "^4.7.4",
-        "@vscode/test-electron": "^2.1.5"
+  "displayName": "Gen-X FastCoding",
+  "description": "Gen-X Coding Helper VSCode Extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:genx-vs-helper.exportJs",
+	"onCommand:genx-vs-helper.objectToJSON"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "genx-vs-helper.exportJs",
+        "title": "Generate an index exporting all js files in the folder",
+        "category": "Gen-X"
+      },
+	  {
+        "command": "genx-vs-helper.objectToJSON",
+        "title": "Replace an object with JSON syntax",
+        "category": "Gen-X"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "genx-vs-helper.exportJs",
+          "group": "Gen-X"
+        }
+      ]
     }
-
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.69.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.18.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@genx/july": "^1.1.0",
+    "@genx/sys": "^0.1.5"
+  }
 }
