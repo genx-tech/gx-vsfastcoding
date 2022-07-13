@@ -66,8 +66,8 @@
         "typescript": "^4.7.4"
     },
     "dependencies": {
-        "@genx/july": "^1.1.0",
-        "@genx/sys": "^0.1.5"
+        "@genx/july": "^1.1.1",
+        "@genx/sys": "^0.1.6"
     },
 	"license": "MIT"
 }
