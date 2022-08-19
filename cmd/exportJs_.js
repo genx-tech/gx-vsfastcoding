@@ -40,7 +40,7 @@ async function exportJs_(uri) {
             exportedName = naming.camelCase(baseName);
         }
 
-        return `export { default as ${exportedName} } from '${baseName}';`;
+        return `export { default as ${exportedName} } from './${baseName}';`;
     });
 
     await fs.writeFile(indexFile, lines.join("\n") + "\n");
