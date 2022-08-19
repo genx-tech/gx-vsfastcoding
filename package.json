@@ -3,6 +3,7 @@
     "displayName": "Gen-X FastCoding",
     "description": "Gen-X Coding Helper VSCode Extension",
     "version": "0.0.1",
+    "publisher": "genx-tech",
     "engines": {
         "vscode": "^1.69.0"
     },
