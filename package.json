@@ -12,11 +12,11 @@
     ],
     "activationEvents": [
         "onCommand:genx-vs-helper.exportJs",
-		"onCommand:genx-vs-helper.changeExtName",
+        "onCommand:genx-vs-helper.changeExtName",
         "onCommand:genx-vs-helper.objectToJSON",
         "onCommand:genx-vs-helper.codeToString"
     ],
-    "main": "./extension.js",
+    "main": "./dist/extension",
     "repository": "https://github.com/genx-tech/gx-vsfastcoding.git",
     "contributes": {
         "commands": [
@@ -25,7 +25,7 @@
                 "title": "Generate an index exporting all js files in the folder",
                 "category": "Gen-X"
             },
-			{
+            {
                 "command": "genx-vs-helper.changeExtName",
                 "title": "Change files extension name recursively in a folder",
                 "category": "Gen-X"
@@ -48,7 +48,7 @@
                     "command": "genx-vs-helper.exportJs",
                     "group": "Gen-X"
                 },
-				{
+                {
                     "when": "explorerResourceIsFolder",
                     "command": "genx-vs-helper.changeExtName",
                     "group": "Gen-X"
@@ -61,7 +61,10 @@
         "pretest": "npm run lint",
         "test": "node ./test/runTest.js",
         "package": "vsce package",
-        "publish": "vsce publish"
+        "publish": "vsce publish",
+        "vscode:prepublish": "npm run esbuild-base -- --minify",
+        "esbuild-base": "esbuild ./extension.js --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+        "esbuild": "npm run esbuild-base -- --sourcemap"
     },
     "devDependencies": {
         "@types/glob": "^7.2.0",
@@ -69,6 +72,7 @@
         "@types/node": "16.x",
         "@types/vscode": "^1.69.0",
         "@vscode/test-electron": "^2.1.5",
+        "esbuild": "^0.15.9",
         "eslint": "^8.18.0",
         "glob": "^8.0.3",
         "mocha": "^10.0.0",
@@ -78,5 +82,5 @@
         "@genx/july": "^1.1.1",
         "@genx/sys": "^0.1.6"
     },
-	"license": "MIT"
+    "license": "MIT"
 }
