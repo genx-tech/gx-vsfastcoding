@@ -2,7 +2,7 @@
     "name": "genx-vs-helper",
     "displayName": "Gen-X FastCoding",
     "description": "Gen-X Coding Helper VSCode Extension",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "genx-tech",
     "engines": {
         "vscode": "^1.69.0"
@@ -13,7 +13,8 @@
     "activationEvents": [
         "onCommand:genx-vs-helper.exportJs",
 		"onCommand:genx-vs-helper.changeExtName",
-        "onCommand:genx-vs-helper.objectToJSON"
+        "onCommand:genx-vs-helper.objectToJSON",
+        "onCommand:genx-vs-helper.codeToString"
     ],
     "main": "./extension.js",
     "repository": "https://github.com/genx-tech/gx-vsfastcoding.git",
@@ -32,6 +33,11 @@
             {
                 "command": "genx-vs-helper.objectToJSON",
                 "title": "Replace an object with JSON syntax",
+                "category": "Gen-X"
+            },
+            {
+                "command": "genx-vs-helper.codeToString",
+                "title": "Quote a list of phrazes separated by comma",
                 "category": "Gen-X"
             }
         ],
@@ -53,7 +59,9 @@
     "scripts": {
         "lint": "eslint .",
         "pretest": "npm run lint",
-        "test": "node ./test/runTest.js"
+        "test": "node ./test/runTest.js",
+        "package": "vsce package",
+        "publish": "vsce publish"
     },
     "devDependencies": {
         "@types/glob": "^7.2.0",
